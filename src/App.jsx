@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 const translations = {
   ja: {
     title: "AQUAMINT",
-    tagline: "大切な思い出をNFTとして永遠に残しましょう",
+    tagline: "大切な思い出をNFTとして残しましょう",
     uploadTitle: "写真をアップロード",
     dropText: "写真をドラッグ＆ドロップ<br>または<br>クリックして選択",
     fileTypes: "JPG、PNG、GIF形式、最大5MBまで",
@@ -47,7 +47,7 @@ const translations = {
   },
   en: {
     title: "AQUAMINT",
-    tagline: "Preserve your precious memories as NFTs forever",
+    tagline: "Preserve your precious memories as NFTs",
     uploadTitle: "Upload Photo",
     dropText: "Drag & Drop Photo<br>or<br>Click to Select",
     fileTypes: "JPG, PNG, GIF formats, up to 5MB",
