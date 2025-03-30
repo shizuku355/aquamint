@@ -53,25 +53,25 @@ const UploadSection = ({ currentLang, translations, onImageUpload }) => {
       // ユーザーのTuskyアカウントにサインイン
       await tusky.auth.signIn();
       
-      // ユーザーのVaultを作成または取得
+      // 公開Vaultを作成または取得
       let vaultId;
       try {
-        // 既存のVaultをリスト
-        const vaults = await tusky.vault.list();
-        const aquamintVault = vaults.find(v => v.name === 'AQUAMINT NFT Images');
+        // 公開Vaultをリストで検索
+        const vaults = await tusky.vault.list({ encrypted: false }); // encrypted: false を指定
+        const aquamintVault = vaults.find(v => v.name === 'AQUAMINT NFT Images' && !v.encrypted); // encrypted: false を条件に追加
         
         if (aquamintVault) {
           vaultId = aquamintVault.id;
         } else {
-          // 新しいVaultを作成
+          // 新しい公開Vaultを作成
           const { id } = await tusky.vault.create('AQUAMINT NFT Images', {
-            encrypted: false // 暗号化なしの公開Vault
+            encrypted: false // 明示的に公開Vaultとして作成
           });
           vaultId = id;
         }
       } catch (err) {
-        console.error('Vault作成/取得エラー:', err);
-        // 新しいVaultを作成
+        console.error('公開Vault作成/取得エラー:', err);
+        // 新しい公開Vaultを作成
         const { id } = await tusky.vault.create('AQUAMINT NFT Images', {
           encrypted: false
         });
