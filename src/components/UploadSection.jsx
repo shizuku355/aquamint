@@ -80,7 +80,7 @@ const UploadSection = ({ currentLang, translations, onImageUpload }) => {
           />
         ) : (
           <div className="upload-placeholder">
-            <img src="/images/upload-icon.png" alt="Upload" />
+            <div className="upload-icon">📁</div>
             <p dangerouslySetInnerHTML={{ __html: t.dropText }}></p>
           </div>
         )}

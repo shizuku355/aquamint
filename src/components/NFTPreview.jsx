@@ -9,15 +9,21 @@ const NFTPreview = ({ currentLang, translations, nftData, previewImage }) => {
       <div className="preview-container">
         <div className="preview-card" id="preview-card">
           <div className="preview-image-container">
-            <img 
-              src={previewImage || "/images/placeholder.png"} 
-              alt="NFT Preview" 
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: previewImage ? 'cover' : 'contain'
-              }}
-            />
+            {previewImage ? (
+              <img 
+                src={previewImage} 
+                alt="NFT Preview" 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            ) : (
+              <div className="placeholder-image">
+                <div className="placeholder-icon">🖼️</div>
+              </div>
+            )}
           </div>
           <div className="preview-info">
             <h3>{nftData.name || (currentLang === 'ja' ? 'NFT名' : 'NFT Name')}</h3>
